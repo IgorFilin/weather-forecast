@@ -1,26 +1,39 @@
 import React, {useEffect} from 'react';
-import './App.css';
+import style from './App.module.css';
 import {api} from "./api/api";
 import {useGeolocated} from "react-geolocated";
+import {useDispatch} from "react-redux";
+import {setGeolocation} from "./bll/reducers/authSlice";
 
 function App() {
 
-    const {coords} = useGeolocated({
-        positionOptions: {enableHighAccuracy: false,}, userDecisionTimeout: 5000,
+    const dispatch = useDispatch()
+
+    const {coords, getPosition} = useGeolocated({
+        positionOptions: {enableHighAccuracy: false}, userDecisionTimeout: 5000, suppressLocationOnMount: true
     });
 
+    const onClickHandler = () => {
+        getPosition()
+    }
+
     useEffect(() => {
-        api.getCurrentWeather()
-            .then((result) => {
-                console.log(result)
-            })
+        if(coords){
+            dispatch(setGeolocation({lat:coords.latitude,lon:coords.longitude}))
+            api.getCurrentWeather()
+                .then((result) => {
+                    // console.log(result)
+                })
+        }
+    }, [coords])
 
-    }, [])
 
-    console.log(coords)
     return (
-        <div className="App">
-
+        <div className={style.app}>
+            <button onClick={onClickHandler}>Нажми на меня что узнать погоду :)</button>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     );
 }
