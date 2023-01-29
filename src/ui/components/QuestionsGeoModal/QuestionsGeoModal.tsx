@@ -7,8 +7,10 @@ interface IQuestionsGeoModal {
     opened:boolean
 }
 
-export const QuestionsGeoModal:React.FC<IQuestionsGeoModal> = ({acceptClick,notAcceptClick}) => {
-
+export const QuestionsGeoModal:React.FC<IQuestionsGeoModal> = ({acceptClick,notAcceptClick,opened}) => {
+  if(!opened){
+      return <></>
+  }
     return (
         <div className={styles.modalContainer}>
           <h3>Good day!</h3>

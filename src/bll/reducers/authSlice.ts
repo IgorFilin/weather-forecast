@@ -1,5 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {authThunk} from "../thunk/authThunk";
 
 
 const initialState = {
@@ -15,6 +14,7 @@ const authSlice = createSlice({
     initialState,
     reducers:{
         'setGeolocation':(state, action)=>{
+            debugger
               state.geolocation.lat = action.payload.lat
               state.geolocation.lon = action.payload.lon
         }
