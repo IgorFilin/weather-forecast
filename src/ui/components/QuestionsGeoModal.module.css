@@ -1,0 +1,30 @@
+.modalContainer{
+    padding: 20px;
+    width: 400px;
+    height: 200px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    word-break: break-word;
+    text-align: center;
+    border: 2px solid #ffffff;
+    background: #ffffff;
+    box-shadow: 0px 12px 50px rgba(10, 1, 1, 0.15);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    transition: all 500ms ease-in-out
+
+}
+.modalContainer button {
+    width: 40%;
+    padding: 5px;
+}
+
+.buttonGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
