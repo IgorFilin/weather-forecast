@@ -3,19 +3,18 @@ import {getWeatherOneType} from "../types";
 import {weatherThunk} from "../thunk/weatherThunk";
 
 const initialState = {
+    weather: {} as getWeatherOneType
+}
 
-} as getWeatherOneType
-
-const weatherReducer = createSlice({
-    name:'weather',
+const weatherSlice = createSlice({
+    name: 'weather',
     initialState,
-    reducers:{
-    },
-    extraReducers:(builder)=> {
-        builder.addCase(weatherThunk.fulfilled,(state,action)=>{
-            state = action.payload
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(weatherThunk.fulfilled, (state, action) => {
             debugger
+            state.weather = action.payload
         })
     }
 })
-export const authReducer = weatherReducer.reducer
+export const weatherReducer = weatherSlice.reducer

@@ -1,11 +1,14 @@
-.modalContainer{
+.modalContainer {
     padding: 20px;
     width: 400px;
     height: 200px;
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transform: scale(0);
     z-index: 1;
     word-break: break-word;
     text-align: center;
@@ -15,14 +18,19 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 21px;
-
+    transition: 0.4s all;
 }
+
+.modalContainerActive {
+    transform: scale(1);
+}
+
 .modalContainer button {
     width: 40%;
     padding: 5px;
 }
 
-.buttonGroup{
+.buttonGroup {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

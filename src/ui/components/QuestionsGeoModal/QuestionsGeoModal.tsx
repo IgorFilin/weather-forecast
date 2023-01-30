@@ -8,11 +8,9 @@ interface IQuestionsGeoModal {
 }
 
 export const QuestionsGeoModal:React.FC<IQuestionsGeoModal> = ({acceptClick,notAcceptClick,opened}) => {
-  if(!opened){
-      return <></>
-  }
+
     return (
-        <div className={styles.modalContainer}>
+        <div className={opened ? `${styles.modalContainerActive} ${styles.modalContainer}` : styles.modalContainer}>
           <h3>Good day!</h3>
           <h4>Do you provide access to geolocation or choose a location manually?</h4>
             <div className={styles.buttonGroup}>

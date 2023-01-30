@@ -1,29 +1,19 @@
-import React, {useEffect} from 'react';
-import {api} from "../../../api/api";
-import {useAppSelector} from "../../../utils/hooks/useAppSelector";
+import React from 'react';
 import styles from './Weather.module.css'
-import {useDispatch} from "react-redux";
-import {weatherThunk} from "../../../bll/thunk/weatherThunk";
+import {useAppSelector} from "../../../utils/hooks/useAppSelector";
 
+interface IWeather {
+    coords: any
+}
 
-export const Weather = () => {
+export const Weather: React.FC<IWeather> = ({coords}) => {
 
-    const { geolocation } = useAppSelector(state => state.authReducer)
-
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        if(geolocation.lon && geolocation.lat){
-            debugger
-            dispatch<any>(weatherThunk({lat:geolocation.lat,lon:geolocation.lon}))
-        }
-
-
-    },[])
+    const { weather } = useAppSelector(state => state.weatherReducer)
 
     return (
         <div className={styles.containerWeather}>
-
+            <div>{weather?.name}</div>
+            <div>{weather.main?.temp}</div>
         </div>
     );
 };

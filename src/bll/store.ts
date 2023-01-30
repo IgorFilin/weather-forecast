@@ -1,10 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit";
 import thunk from 'redux-thunk'
 import {authReducer} from "./reducers/authSlice";
+import {weatherReducer} from "./reducers/weatherReducer";
 
 
 export const store = configureStore({
-    reducer: {authReducer},
+    reducer: {authReducer,weatherReducer},
     middleware:[thunk],
 })
 
