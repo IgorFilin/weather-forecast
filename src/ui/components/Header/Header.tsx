@@ -29,7 +29,7 @@ export const Header: React.FC<IHeader> = () => {
             width: '100%',
             height: '60px',
         }}>
-            <Typography variant="h5" component="h5">Welcome friend!</Typography>
+            <Typography variant="h5" component="h5"></Typography>
             <IconButton color="primary">
                 <MaterialUISwitch checked={checked} onChange={handleChange}  size='small' sx={{m: 1}}/>
             </IconButton>
