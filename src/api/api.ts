@@ -3,8 +3,14 @@ import {getWeatherOneType} from "../bll/types";
 
 
 export const api = {
-    getCurrentWeather({lat,lon}:{lat:number,lon:number}){
-        return instance.get(`/weather?lang=en&lat=${lat}&lon=${lon}&mode=json&units=metric`)
-            .then((res)=> res.data)
+    getCurrentWeather<getWeatherOneType>({lat, lon ,currentCity}: { lat?: number, lon?: number, currentCity?: string }) {
+        return instance.get(`/weather?lang=en&mode=json&units=metric`, {
+            params: {
+                lat,
+                lon,
+                q:currentCity
+            }
+        })
+            .then((res) => res.data)
     }
 }

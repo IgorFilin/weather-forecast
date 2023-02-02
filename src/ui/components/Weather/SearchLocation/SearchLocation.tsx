@@ -4,24 +4,35 @@ import {useAppGeolocation} from "../../../../utils/hooks/useAppGeolocation";
 import {Box, IconButton, InputAdornment, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
+import {useInput} from "../../../../utils/hooks/useInput";
+import {useAppDispatch} from "../../../../utils/hooks/useAppDispatch";
 
 export const SearchLocation = () => {
 
     const searchLocation = useAppGeolocation(weatherThunk)
 
+    const dispatch = useAppDispatch()
+
+    const cityTitleAndHandlerObj = useInput(onEnterHandler)
+
+    function onEnterHandler() {
+        dispatch(weatherThunk({currentCity:cityTitleAndHandlerObj.value}))
+    }
+
     return (
         <Box sx={{
-            display:'flex',
-            alignItems:'center',
-            gap:'5px'
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px'
         }}>
             <IconButton onClick={searchLocation} aria-label="location">
                 <MyLocationIcon fontSize='large'/>
             </IconButton>
             <TextField
                 sx={{
-                    width:'300px',
+                    width: '300px',
                 }}
+                {...cityTitleAndHandlerObj}
                 margin='none'
                 fullWidth
                 placeholder='Search'
@@ -30,7 +41,7 @@ export const SearchLocation = () => {
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">
-                            <SearchIcon />
+                            <SearchIcon/>
                         </InputAdornment>
                     ),
                 }}

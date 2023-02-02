@@ -1,9 +1,6 @@
 import {useGeolocated} from "react-geolocated";
-import {useDispatch} from "react-redux";
 import {useEffect} from "react";
-import {weatherThunk} from "../../bll/thunk/weatherThunk";
 import {useAppDispatch} from "./useAppDispatch";
-import {AsyncThunk} from "@reduxjs/toolkit";
 
 
 export function useAppGeolocation(thunk: any ) {
