@@ -1,14 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
 * {
-  font-family: 'Silkscreen', cursive;
 
 }
 
 body {
-  background-image: url('./assets/background.jpg');
-  box-sizing: border-box;
-  overflow: hidden
+
 }
 
 

@@ -1,13 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import style from './App.module.css';
 import {useGeolocated} from "react-geolocated";
 import {useDispatch} from "react-redux";
-import {QuestionsGeoModal} from "./ui/components/QuestionsGeoModal/QuestionsGeoModal";
-import {Weather} from "./ui/components/Weather/Weather";
 import {weatherThunk} from "./bll/thunk/weatherThunk";
+import {useChangeMuiTheme} from "./utils/hooks/useChangeMuiTheme";
+import {Box, Button, CssBaseline, ThemeProvider} from "@mui/material";
+import {ColorModeContext} from "./index";
+import {Header} from "./ui/components/Header/Header";
 
 
 function App() {
+
+    const changeTheme = useContext(ColorModeContext)
 
     const [openedModal, setOpenedModal] = useState(true)
 
@@ -28,14 +32,15 @@ function App() {
 
     useEffect(() => {
         if (coords) {
-                dispatch<any>(weatherThunk({lat: coords.latitude, lon: coords.longitude}))
+            dispatch<any>(weatherThunk({lat: coords.latitude, lon: coords.longitude}))
         }
     }, [coords])
 
-    return (
-        <div className={style.app}>
 
-        </div>
+    return (
+        <Box>
+        <Header/>
+        </Box>
     );
 }
 
