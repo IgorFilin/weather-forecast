@@ -34,9 +34,7 @@ function App() {
 
     return (
         <div className={style.app}>
-            <QuestionsGeoModal opened={openedModal} acceptClick={acceptClickHandler}
-                               notAcceptClick={notAcceptClickHandler}/>
-            {!openedModal && <Weather coords={coords}/>}
+
         </div>
     );
 }
