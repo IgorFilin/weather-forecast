@@ -12,7 +12,6 @@ const weatherSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(weatherThunk.fulfilled, (state, action) => {
-            debugger
             state.weather = action.payload
         })
     }

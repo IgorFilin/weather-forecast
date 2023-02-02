@@ -1,18 +1,18 @@
 import React from 'react';
 import {useAppSelector} from "../../../utils/hooks/useAppSelector";
+import {Box} from "@mui/material";
 
 interface IWeather {
-    coords: any
 }
 
-export const Weather: React.FC<IWeather> = ({coords}) => {
+export const Weather: React.FC<IWeather> = ({}) => {
 
     const { weather } = useAppSelector(state => state.weatherReducer)
 
     return (
-        <div >
+        <Box textAlign={'center'}>
 
-        </div>
+        </Box>
     );
 };
 
