@@ -11,7 +11,11 @@ const initialState = {
 const weatherSlice = createSlice({
     name: 'weather',
     initialState,
-    reducers: {},
+    reducers: {
+        setError:(state, action)=>{
+            state.error = action.payload
+}
+    },
     extraReducers: (builder) => {
         builder.addCase(weatherThunk.pending, (state, action) => {
             state.isLoading = true
@@ -27,3 +31,4 @@ const weatherSlice = createSlice({
     }
 })
 export const weatherReducer = weatherSlice.reducer
+export const actions = weatherSlice.actions
