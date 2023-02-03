@@ -19,7 +19,7 @@ export const Weather: React.FC<IWeather> = ({}) => {
                 flexDirection: 'column',
                 alignItems:'center',
                 width: '80%',
-                marginTop: '10%',
+                marginTop: '80px',
             }}>
                 <SearchLocation/>
                 <WeatherInCityBlock/>

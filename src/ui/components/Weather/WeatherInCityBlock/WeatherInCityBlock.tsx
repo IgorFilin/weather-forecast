@@ -1,6 +1,7 @@
 import React from 'react';
 import {Box, Typography} from "@mui/material";
 import {useAppSelector} from "../../../../utils/hooks/useAppSelector";
+import {Hr} from "../../Hr/Hr";
 
 interface IWeatherInCityBlock {
 }
@@ -24,18 +25,18 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    marginTop: '10%',
+                    marginTop: '20px',
                     gap: '7px',
                 }}>
                     <img src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`} alt="flag"
                          width='50px' height='30px'/>
                     <Typography  sx={{fontSize: {
-                            lg: 40,
-                            md: 35,
+                            lg: 45,
+                            md: 45,
                             sm: 30,
-                            xs: 20
+                            xs: 30
                         }}}>{city}</Typography>
-                    <Typography  fontWeight={400} variant="h6" component="h6">{description}</Typography>
+                    <Typography  fontWeight={400} variant="h5" component="h6">{description}</Typography>
                     <Box sx={{
                         display:'flex',
                         justifyContent:'center',
@@ -45,7 +46,8 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                         <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather description"
                              width='50px' height='50px'/>
                     </Box>
-                </Box>}
+                </Box>
+            }
         </Box>
     );
 };
