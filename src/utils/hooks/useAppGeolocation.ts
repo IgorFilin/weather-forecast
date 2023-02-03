@@ -1,6 +1,7 @@
 import {useGeolocated} from "react-geolocated";
 import {useEffect} from "react";
 import {useAppDispatch} from "./useAppDispatch";
+import {weatherActions} from "../../bll/reducers/weatherReducer";
 
 
 export function useAppGeolocation(thunk: any ) {
@@ -11,8 +12,9 @@ export function useAppGeolocation(thunk: any ) {
         positionOptions: {enableHighAccuracy: false}, userDecisionTimeout: 5000, suppressLocationOnMount: true
     });
 
-    const searchLocation = () => {
+    const searchLocation =  () => {
         getPosition()
+        dispatch(weatherActions.setLoading(true))
     }
 
     useEffect(() => {

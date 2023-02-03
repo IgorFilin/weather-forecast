@@ -1,16 +1,18 @@
 import React from 'react';
 import {weatherThunk} from "../../../../bll/thunk/weatherThunk";
 import {useAppGeolocation} from "../../../../utils/hooks/useAppGeolocation";
-import {Box, Icon, IconButton, InputAdornment, SvgIcon, TextField} from "@mui/material";
+import {Box, Icon, IconButton, InputAdornment, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
-import MyLocationIcon from '@mui/icons-material/MyLocation';
 import {useInput} from "../../../../utils/hooks/useInput";
 import {useAppDispatch} from "../../../../utils/hooks/useAppDispatch";
 import compass from './../../../../assets/svg/compass.svg'
+import {useAppSelector} from "../../../../utils/hooks/useAppSelector";
 
 export const SearchLocation = () => {
 
     const searchLocation = useAppGeolocation(weatherThunk)
+
+    const isLoading = useAppSelector(state => state.weatherReducer.isLoading)
 
     const dispatch = useAppDispatch()
 
@@ -28,18 +30,19 @@ export const SearchLocation = () => {
             gap: '5px',
             marginRight: '40px'
         }}>
-            <Icon onClick={searchLocation} sx={{
+            <IconButton onClick={searchLocation} disabled={isLoading} sx={{
                 width: '70px',
                 height: '70px',
                 cursor: 'pointer',
             }}>
                 <img src={compass}/>
-            </Icon>
+            </IconButton>
             <TextField
                 sx={{
                     maxWidth: '300px',
                 }}
                 {...cityTitleAndHandlerObj}
+                disabled={isLoading}
                 margin='none'
                 fullWidth
                 placeholder='Search'

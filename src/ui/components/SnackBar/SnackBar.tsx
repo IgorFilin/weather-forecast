@@ -3,7 +3,7 @@ import Snackbar from '@mui/material/Snackbar';
 import {Alert} from "@mui/material";
 import {useAppSelector} from "../../../utils/hooks/useAppSelector";
 import {useDispatch} from "react-redux";
-import {actions} from "../../../bll/reducers/weatherReducer";
+import {weatherActions} from "../../../bll/reducers/weatherReducer";
 
 export const SimpleSnackbar = () => {
 
@@ -16,7 +16,7 @@ export const SimpleSnackbar = () => {
             return;
         }
 
-        dispatch(actions.setError(''));
+        dispatch(weatherActions.setError(''));
     };
 
 
