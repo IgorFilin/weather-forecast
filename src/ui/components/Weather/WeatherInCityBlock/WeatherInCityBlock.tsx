@@ -1,7 +1,6 @@
 import React from 'react';
-import {Box, Typography} from "@mui/material";
+import {Box, CircularProgress, Typography} from "@mui/material";
 import {useAppSelector} from "../../../../utils/hooks/useAppSelector";
-import {Hr} from "../../Hr/Hr";
 import {converterUnix} from "../../../../utils/functions/convertedUnixInRealTime";
 
 interface IWeatherInCityBlock {
@@ -11,6 +10,7 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
 
     const weather = useAppSelector(state => state.weatherReducer.weather)
 
+    const isLoading = useAppSelector(state => state.weatherReducer.isLoading)
 
     const city = weather.name?.toUpperCase()
     const country = weather.sys?.country
@@ -21,7 +21,9 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
     const sunset = converterUnix(weather.sys?.sunset)
     const feelLike = Math.round(weather.main?.feels_like)
 
-    console.log(sunrise, sunset)
+    if (isLoading && Object.keys(weather).length === 0) {
+        return <Box><CircularProgress sx={{marginTop: '70px',}} /></Box>
+    }
 
     return (
         <Box sx={{marginTop: '10px'}}>

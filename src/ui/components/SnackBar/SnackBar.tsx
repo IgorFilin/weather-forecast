@@ -21,16 +21,17 @@ export const SimpleSnackbar = () => {
 
 
     return (
-        <div>
-            <Snackbar
-                open={!!error}
-                autoHideDuration={6000}
-                onClose={handleClose}
-            >
-                <Alert color='error' onClose={handleClose} severity="error" sx={{width: '100%'}}>
-                    {error}
-                </Alert>
-            </Snackbar>
-        </div>
+            <div>
+                <Snackbar
+                    open={!!error}
+                    autoHideDuration={6000}
+                    onClose={handleClose}
+                >
+                    <Alert color='error' onClose={handleClose} severity="error" sx={{width: '100%'}}>
+                        {error}
+                    </Alert>
+                </Snackbar>
+            </div>
+
     );
 }

@@ -1,13 +1,15 @@
 import React from 'react';
-import {Box} from "@mui/material";
+import {Box, Skeleton} from "@mui/material";
 import {SearchLocation} from "./SearchLocation/SearchLocation";
 import {WeatherInCityBlock} from "./WeatherInCityBlock/WeatherInCityBlock";
+import {useAppSelector} from "../../../utils/hooks/useAppSelector";
 
 interface IWeather {
 }
 
 export const Weather: React.FC<IWeather> = ({}) => {
 
+    const isLoading = useAppSelector(state => state.weatherReducer.isLoading)
 
     return (
         <Box sx={{
@@ -22,8 +24,7 @@ export const Weather: React.FC<IWeather> = ({}) => {
                 marginTop: '80px',
             }}>
                 <SearchLocation/>
-                <WeatherInCityBlock/>
-
+               <WeatherInCityBlock/>
             </Box>
         </Box>
     );

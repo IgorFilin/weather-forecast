@@ -7,7 +7,6 @@ import {Hr} from "./ui/components/Hr/Hr";
 
 
 function App() {
-
     return (
         <Box>
             <Header/>
