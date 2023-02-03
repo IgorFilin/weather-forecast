@@ -6,11 +6,15 @@ export function useInput(onEnterHandler:()=>void) {
     const onChange = (e:ChangeEvent<HTMLInputElement>) => {
         setValue(e.currentTarget.value)
     }
+    const onBlur = () => {
+        onEnterHandler()
+        setValue('')
+    }
     const onKeyDown = (e:KeyboardEvent<HTMLDivElement>) => {
         if(e.code === 'Enter'){
             onEnterHandler()
             setValue('')
         }
     }
-    return {value,onChange,onKeyDown}
+    return {value,onChange,onKeyDown,onBlur}
 }
