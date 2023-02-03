@@ -1,11 +1,12 @@
 import React from 'react';
 import {weatherThunk} from "../../../../bll/thunk/weatherThunk";
 import {useAppGeolocation} from "../../../../utils/hooks/useAppGeolocation";
-import {Box, IconButton, InputAdornment, TextField} from "@mui/material";
+import {Box, Icon, IconButton, InputAdornment, SvgIcon, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import {useInput} from "../../../../utils/hooks/useInput";
 import {useAppDispatch} from "../../../../utils/hooks/useAppDispatch";
+import compass from './../../../../assets/svg/compass.svg'
 
 export const SearchLocation = () => {
 
@@ -25,14 +26,15 @@ export const SearchLocation = () => {
             display: 'flex',
             alignItems: 'center',
             gap: '5px',
-            marginRight:'40px'
+            marginRight: '40px'
         }}>
-
-            <IconButton sx={{
-                justifyItems:'none'
-            }} onClick={searchLocation} aria-label="location">
-                <MyLocationIcon fontSize='large'/>
-            </IconButton>
+            <Icon onClick={searchLocation} sx={{
+                width: '70px',
+                height: '70px',
+                cursor: 'pointer',
+            }}>
+                <img src={compass}/>
+            </Icon>
             <TextField
                 sx={{
                     maxWidth: '300px',

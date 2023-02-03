@@ -54,13 +54,13 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                     {isLoading ? <Skeleton width='100px' height='58px'/> :<Box sx={{
                         display: 'flex',
                         justifyContent: 'center',
-                        gap: '5px',
+                        gap: '0px',
                     }}>
                          <Typography fontWeight={400} variant="h3" component="h3">
                             {grades}&#176;
                         </Typography>
                         <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather description"
-                             width='50px' height='50px'/>
+                             width='50px' height='50px' />
                     </Box>}
                     {isLoading ? <Skeleton width='150px' height='32px'/> :<Typography fontWeight={400} variant="h5" component="h5">Feels like {feelLike}&#176;
                     </Typography>}
