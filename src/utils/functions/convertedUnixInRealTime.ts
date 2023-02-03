@@ -1,13 +1,25 @@
-export function converterUnix(unix_timestamp: number) {
+import moment from 'moment';
 
-    let date = new Date(unix_timestamp * 1000);
 
-    let hours = date.getHours();
+export function converterUnixAndGetDate(unix_timestamp?: number) {
+    let formattedTime
+    if (unix_timestamp) {
+        let date = new Date(unix_timestamp * 1000);
 
-    let minutes = "0" + date.getMinutes();
+        let hours: any = date.getHours();
 
-    let seconds = "0" + date.getSeconds();
-    let formattedTime = hours + ':' + minutes.slice(1)
+        if (hours < 10) {
+            hours = '0' + hours
+        }
+        let minutes: any = "0" + date.getMinutes();
 
-    return formattedTime;
+        if (minutes < 10) {
+            minutes = '0' + hours
+        }
+        formattedTime = hours + ':' + minutes.slice(1)
+    }
+    const resultDate = moment().format("[Today is] dddd, D MMMM");
+
+
+    return {formattedTime: formattedTime && formattedTime, date: resultDate};
 }
