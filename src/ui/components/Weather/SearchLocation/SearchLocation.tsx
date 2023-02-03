@@ -16,7 +16,8 @@ export const SearchLocation = () => {
     const cityTitleAndHandlerObj = useInput(onEnterHandler)
 
     function onEnterHandler() {
-        dispatch(weatherThunk({currentCity:cityTitleAndHandlerObj.value}))
+        const currentCity = cityTitleAndHandlerObj.value.trim()
+        dispatch(weatherThunk({currentCity}))
     }
 
     return (

@@ -7,8 +7,10 @@ export function useInput(onEnterHandler:()=>void) {
         setValue(e.currentTarget.value)
     }
     const onBlur = () => {
-        onEnterHandler()
-        setValue('')
+        if(value){
+            onEnterHandler()
+            setValue('')
+        }
     }
     const onKeyDown = (e:KeyboardEvent<HTMLDivElement>) => {
         if(e.code === 'Enter'){
