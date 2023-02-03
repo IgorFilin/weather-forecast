@@ -94,64 +94,64 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                         flexWrap:'wrap',
                     }}>
                         <Box>
-                            <Icon sx={{
+                            {isLoading ? <Skeleton width='70px' height='70px'/> :<Icon sx={{
                                 width: '70px',
                                 height: '70px',
                                 cursor: 'pointer',
                             }}>
                                 <img  src={windSvg}/>
-                            </Icon>
-                            <Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
+                            </Icon>}
+                            {isLoading ? <Skeleton width='70px' height='33px'/> :<Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
                                 {wind} &#13223;
-                            </Typography>
+                            </Typography>}
                         </Box>
                         <Box>
-                            <Icon sx={{
+                            {isLoading ? <Skeleton width='70px' height='70px'/> :<Icon sx={{
                                 width: '70px',
                                 height: '70px',
                                 cursor: 'pointer',
                             }} >
                                 <img src={barometerSvg}/>
-                            </Icon>
-                            <Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
+                            </Icon>}
+                            {isLoading ? <Skeleton width='70px' height='33px'/> :<Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
                                 {pressure}
-                            </Typography>
+                            </Typography>}
                         </Box>
                         <Box>
-                            <Icon sx={{
+                            {isLoading ? <Skeleton width='70px' height='70px'/> :<Icon sx={{
                                 width: '70px',
                                 height: '70px',
                                 cursor: 'pointer',
                             }}>
                                 <img src={humiditySvg}/>
-                            </Icon>
-                            <Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
+                            </Icon>}
+                            {isLoading ? <Skeleton width='70px' height='33px'/> :<Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
                                 {humidity}
-                            </Typography>
+                            </Typography>}
                         </Box>
                         <Box>
-                            <Icon sx={{
+                            {isLoading ? <Skeleton width='70px' height='70px'/> :<Icon sx={{
                                 width: '70px',
                                 height: '70px',
                                 cursor: 'pointer',
                             }}>
                                 <img src={sunriseSvg}/>
-                            </Icon>
-                            <Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
+                            </Icon>}
+                            {isLoading ? <Skeleton width='70px' height='33px'/> :<Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
                                 {sunrise}
-                            </Typography>
+                            </Typography>}
                         </Box>
                         <Box>
-                            <Icon sx={{
+                            {isLoading ? <Skeleton width='70px' height='70px'/> :<Icon sx={{
                                 width: '70px',
                                 height: '70px',
                                 cursor: 'pointer',
                             }}>
                                 <img src={sunsetSvg}/>
-                            </Icon>
-                            <Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
+                            </Icon>}
+                            {isLoading ? <Skeleton width='70px' height='33px'/> :<Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
                                 {sunset}
-                            </Typography>
+                            </Typography>}
                         </Box>
                     </Box>
                 </Box>
