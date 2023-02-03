@@ -25,8 +25,12 @@ export const SearchLocation = () => {
             display: 'flex',
             alignItems: 'center',
             gap: '5px',
+            marginRight:'40px'
         }}>
-            <IconButton onClick={searchLocation} aria-label="location">
+
+            <IconButton sx={{
+                justifyItems:'none'
+            }} onClick={searchLocation} aria-label="location">
                 <MyLocationIcon fontSize='large'/>
             </IconButton>
             <TextField
