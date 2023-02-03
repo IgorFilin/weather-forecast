@@ -10,22 +10,20 @@ export const Weather: React.FC<IWeather> = ({}) => {
 
 
     return (
-        <Box  sx={{
-            display:'flex',
-            justifyContent:'center',
+        <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
         }}>
             <Box sx={{
-                display:'flex',
-                justifyContent:'center',
-                width:'80%',
-                marginTop: '10%'
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems:'center',
+                width: '80%',
+                marginTop: '10%',
             }}>
-                <Box sx={{
+                <SearchLocation/>
+                <WeatherInCityBlock/>
 
-                }}>
-                    <SearchLocation/>
-                    <WeatherInCityBlock/>
-                </Box>
             </Box>
         </Box>
     );

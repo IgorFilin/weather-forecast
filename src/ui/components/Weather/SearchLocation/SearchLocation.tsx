@@ -23,14 +23,14 @@ export const SearchLocation = () => {
         <Box sx={{
             display: 'flex',
             alignItems: 'center',
-            gap: '5px'
+            gap: '5px',
         }}>
             <IconButton onClick={searchLocation} aria-label="location">
                 <MyLocationIcon fontSize='large'/>
             </IconButton>
             <TextField
                 sx={{
-                    width: '300px',
+                    maxWidth: '300px',
                 }}
                 {...cityTitleAndHandlerObj}
                 margin='none'

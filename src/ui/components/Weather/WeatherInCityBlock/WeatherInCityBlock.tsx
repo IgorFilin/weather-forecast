@@ -17,9 +17,8 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
     const icon = weather.weather && weather?.weather[0].icon
 
 
-
     return (
-        <Box>
+        <Box sx={{marginTop:'10px'}}>
             {Object.keys(weather).length !== 0 &&
                 <Box sx={{
                     display: 'flex',
@@ -30,8 +29,13 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                 }}>
                     <img src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`} alt="flag"
                          width='50px' height='30px'/>
-                    <Typography  fontWeight={700} variant="h3" component="h3">{city}</Typography>
-                    <Typography fontWeight={400} variant="h6" component="h6">{description}</Typography>
+                    <Typography  sx={{fontSize: {
+                            lg: 40,
+                            md: 35,
+                            sm: 30,
+                            xs: 20
+                        }}}>{city}</Typography>
+                    <Typography  fontWeight={400} variant="h6" component="h6">{description}</Typography>
                     <Box sx={{
                         display:'flex',
                         justifyContent:'center',
