@@ -5,6 +5,8 @@ import {converterUnixAndGetDate} from "../../../../utils/functions/convertedUnix
 import windSvg from '../../../../assets/svg/wind.svg'
 import sunriseSvg from '../../../../assets/svg/sunrise.svg'
 import sunsetSvg from '../../../../assets/svg/sunset.svg'
+import barometerSvg from '../../../../assets/svg/barometer.svg'
+import humiditySvg from '../../../../assets/svg/humidity.svg'
 
 interface IWeatherInCityBlock {
 }
@@ -25,13 +27,15 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
     const {date} = converterUnixAndGetDate()
     const feelLike = Math.round(weather.main?.feels_like)
     const wind = weather.wind?.speed
+    const pressure = Math.round(weather.main?.pressure * 0.75)
+    const humidity = weather.main?.humidity
 
     if (isLoading && Object.keys(weather).length === 0) {
         return <Box><CircularProgress sx={{marginTop: '70px',}}/></Box>
     }
 
     return (
-        <Box sx={{marginTop: '10px'}}>
+        <Box >
             {Object.keys(weather).length !== 0 &&
                 <Box sx={{
                     display: 'flex',
@@ -41,11 +45,13 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                     gap: '9px',
                 }}>
                     {isLoading ? <Skeleton width='130px' height='33px'/> :
-                        <Typography fontWeight={400} variant="h5" component="h6">
+                        <Typography sx={{
+                            color: 'rgb(133,83,83)',
+                        }} fontWeight={400} variant="h5" component="h6">
                             {date}
                         </Typography>}
                     {isLoading ? <Skeleton width='50px' height='30px'/> :
-                        <img src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`}
+                        <img style={{marginTop: '10px'}} src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`}
                              alt="flag"
                              width='50px' height='30px'/>}
                     {isLoading ? <Skeleton width='200px' height='65px'/> : <Typography sx={{
@@ -60,7 +66,11 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                         {city}
                     </Typography>}
                     {isLoading ? <Skeleton width='130px' height='33px'/> :
-                        <Typography fontWeight={400} variant="h5" component="h6">
+                        <Typography sx={{
+                            lineHeight: '1.6',
+                            color: 'rgb(158, 158, 158)',
+                            letterSpacing: '2px',
+                        }} fontWeight={400} variant="h5" component="h6">
                             {description}
                         </Typography>}
                     {isLoading ? <Skeleton width='100px' height='58px'/> : <Box sx={{
@@ -81,6 +91,7 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                         display: 'flex',
                         justifyContent: 'center',
                         gap: '50px',
+                        flexWrap:'wrap',
                     }}>
                         <Box>
                             <Icon sx={{
@@ -88,10 +99,34 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                                 height: '70px',
                                 cursor: 'pointer',
                             }}>
-                                <img src={windSvg}/>
+                                <img  src={windSvg}/>
                             </Icon>
                             <Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
                                 {wind} &#13223;
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <Icon sx={{
+                                width: '70px',
+                                height: '70px',
+                                cursor: 'pointer',
+                            }} >
+                                <img src={barometerSvg}/>
+                            </Icon>
+                            <Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
+                                {pressure}
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <Icon sx={{
+                                width: '70px',
+                                height: '70px',
+                                cursor: 'pointer',
+                            }}>
+                                <img src={humiditySvg}/>
+                            </Icon>
+                            <Typography textAlign={"center"} fontWeight={400} variant="h5" component="h6">
+                                {humidity}
                             </Typography>
                         </Box>
                         <Box>
