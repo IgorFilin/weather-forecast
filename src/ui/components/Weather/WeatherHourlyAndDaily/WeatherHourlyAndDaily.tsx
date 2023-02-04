@@ -36,7 +36,7 @@ export const WeatherHourlyAndDaily = () => {
         }}>
             {hourly?.map(hour => {
 
-                // const icon = hour.weather && hour.weather[0].icon
+                const icon = hour.weather && hour.weather[0].icon
 
                 return <Box sx={{
                     display:'flex',
@@ -53,8 +53,8 @@ export const WeatherHourlyAndDaily = () => {
                             }} fontWeight={500} variant="h5" component="h6">
                                 {hour.temp}
                             </Typography>}
-                        {/*<img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather description"*/}
-                        {/*     width='50px' height='50px'/>*/}
+                        <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather description"
+                             width='50px' height='50px'/>
                     </Box>
                     {isLoading ? <Skeleton width='130px' height='33px'/> :
                         <Typography sx={{
