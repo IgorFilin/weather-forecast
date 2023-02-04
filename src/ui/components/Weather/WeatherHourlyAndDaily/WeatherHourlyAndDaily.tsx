@@ -32,14 +32,34 @@ export const WeatherHourlyAndDaily = () => {
             justifyContent:'center',
             width:'80%',
             flexWrap:'wrap',
-            gap:'10px',
+            gap:'2px',
         }}>
             {hourly?.map(hour => {
-                return <Box>
+
+                // const icon = hour.weather && hour.weather[0].icon
+
+                return <Box sx={{
+                    display:'flex',
+                    flexDirection:'column',
+                    justifyContent:'center',
+                    alignItems:'center',
+                    width:'100px',
+                    height:'100px',
+                }}>
+                    <Box>
+                        {isLoading ? <Skeleton width='130px' height='33px'/> :
+                            <Typography sx={{
+                                color: 'rgb(13,6,6)',
+                            }} fontWeight={500} variant="h5" component="h6">
+                                {hour.temp}
+                            </Typography>}
+                        {/*<img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather description"*/}
+                        {/*     width='50px' height='50px'/>*/}
+                    </Box>
                     {isLoading ? <Skeleton width='130px' height='33px'/> :
                         <Typography sx={{
-                            color: 'rgb(133,83,83)',
-                        }} fontWeight={400} variant="h5" component="h6">
+                            color: 'rgb(13,6,6)',
+                        }} fontWeight={500} variant="h5" component="h6">
                             {moment.unix(hour.dt).format("HH:00")}
                         </Typography>}
                 </Box>
