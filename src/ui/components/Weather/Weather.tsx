@@ -1,8 +1,7 @@
 import React from 'react';
-import {Box, Skeleton} from "@mui/material";
+import {Box} from "@mui/material";
 import {SearchLocation} from "./SearchLocation/SearchLocation";
 import {WeatherInCityBlock} from "./WeatherInCityBlock/WeatherInCityBlock";
-import {useAppSelector} from "../../../utils/hooks/useAppSelector";
 import {WeatherHourlyAndDaily} from "./WeatherHourlyAndDaily/WeatherHourlyAndDaily";
 import {Hr} from "../../sharedComponents/Hr/Hr";
 
@@ -27,6 +26,7 @@ export const Weather: React.FC<IWeather> = ({}) => {
                 <WeatherInCityBlock/>
                 <Hr/>
                 <WeatherHourlyAndDaily/>
+                <Hr/>
             </Box>
         </Box>
     );
