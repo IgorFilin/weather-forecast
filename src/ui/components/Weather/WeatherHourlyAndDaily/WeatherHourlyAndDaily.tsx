@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Box, Skeleton, Typography} from "@mui/material";
+import {Box, Paper, Skeleton, Typography} from "@mui/material";
 import {useAppDispatch} from "../../../../utils/hooks/useAppDispatch";
 import {weatherHourlyAndDailyThunk} from "../../../../bll/thunk/weatherHourlyAndDailyThunk";
 import {useAppSelector} from "../../../../utils/hooks/useAppSelector";
@@ -29,16 +29,17 @@ export const WeatherHourlyAndDaily = () => {
     return (
         <Box sx={{
             display:'flex',
-            justifyContent:'center',
+            justifyContent:'space-between',
             width:'80%',
             flexWrap:'wrap',
-            gap:'2px',
+            gap:'10px',
         }}>
             {hourly?.map(hour => {
 
                 const icon = hour.weather && hour.weather[0].icon
+                const temp = Math.round(hour.temp)
 
-                return <Box sx={{
+                return <Paper sx={{
                     display:'flex',
                     flexDirection:'column',
                     justifyContent:'center',
@@ -46,23 +47,19 @@ export const WeatherHourlyAndDaily = () => {
                     width:'100px',
                     height:'100px',
                 }}>
-                    <Box>
+                    {isLoading ? <Skeleton width='130px' height='33px'/> :
+                        <Typography  fontWeight={500} variant="h5" component="h6">
+                            {moment.unix(hour.dt).format("HH:00")}
+                        </Typography>}
+                    <Box sx={{display:'flex',alignItems:'center'}}>
                         {isLoading ? <Skeleton width='130px' height='33px'/> :
-                            <Typography sx={{
-                                color: 'rgb(13,6,6)',
-                            }} fontWeight={500} variant="h5" component="h6">
-                                {hour.temp}
+                            <Typography  fontWeight={500} variant="h5" component="h6">
+                                {temp}
                             </Typography>}
                         <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather description"
                              width='50px' height='50px'/>
                     </Box>
-                    {isLoading ? <Skeleton width='130px' height='33px'/> :
-                        <Typography sx={{
-                            color: 'rgb(13,6,6)',
-                        }} fontWeight={500} variant="h5" component="h6">
-                            {moment.unix(hour.dt).format("HH:00")}
-                        </Typography>}
-                </Box>
+                </Paper>
             })}
         </Box>
     );
