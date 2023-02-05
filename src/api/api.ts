@@ -1,5 +1,4 @@
 import {instance} from "./instance";
-import {getWeatherHourlyAndDailyType, getWeatherOneType} from "../bll/types";
 
 
 export const api = {
@@ -14,7 +13,7 @@ export const api = {
             .then((res) => res.data)
     },
     getHourlyAndDailyWeather<getWeatherHourlyAndDailyType>({lat, lon}: { lat?: number, lon?: number }) {
-        return instance.get(`/onecall?lang=en&mode=json&units=metric`, {
+        return instance.get(`/forecast?lang=en&mode=json&units=metric`, {
             params: {
                 lat,
                 lon,

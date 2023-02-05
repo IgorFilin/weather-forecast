@@ -15,7 +15,7 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
 
     const weather = useAppSelector(state => state.weatherReducer.weather)
 
-    const isLoading = useAppSelector(state => state.weatherReducer.isLoading)
+    const isLoading = useAppSelector(state => state.weatherReducer.isLoadingWeather)
 
     const city = weather.name?.toUpperCase()
     const country = weather.sys?.country
@@ -85,7 +85,8 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                              width='50px' height='50px'/>
                     </Box>}
                     {isLoading ? <Skeleton width='150px' height='32px'/> :
-                        <Typography fontWeight={400} variant="h5" component="h5">Feels like {feelLike}&#176;
+                        <Typography fontWeight={400} variant="h5" component="h5">
+                            Feels like {feelLike}&#176;
                         </Typography>}
                     <Box sx={{
                         display: 'flex',

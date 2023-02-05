@@ -12,7 +12,7 @@ export const SearchLocation = () => {
 
     const searchLocation = useAppGeolocation(weatherThunk)
 
-    const isLoading = useAppSelector(state => state.weatherReducer.isLoading)
+    const isLoading = useAppSelector(state => state.weatherReducer.isLoadingWeather)
 
     const dispatch = useAppDispatch()
 

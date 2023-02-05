@@ -6,7 +6,8 @@ import {weatherHourlyAndDailyThunk} from "../thunk/weatherHourlyAndDailyThunk";
 const initialState = {
     weather: {} as getWeatherOneType,
     weatherHourlyAndDaily:{} as getWeatherHourlyAndDailyType,
-    isLoading:false,
+    isLoadingWeather:false,
+    isLoadingWeatherHourlyAndDaily:false,
     error:'',
 }
 
@@ -18,30 +19,30 @@ const weatherSlice = createSlice({
             state.error = action.payload
     },
         setLoading:(state, action)=>{
-            state.isLoading = action.payload
+            state.isLoadingWeather = action.payload
         }
     },
     extraReducers: (builder) => {
         builder.addCase(weatherThunk.pending, (state, action) => {
-            state.isLoading = true
+            state.isLoadingWeather = true
         })
         builder.addCase(weatherThunk.fulfilled, (state, action) => {
             state.weather = action.payload
-            state.isLoading = false
+            state.isLoadingWeather = false
         })
         builder.addCase(weatherThunk.rejected, (state, action) => {
-            state.isLoading = false
+            state.isLoadingWeather = false
             state.error = action.payload as string
         })
         builder.addCase(weatherHourlyAndDailyThunk.pending, (state, action) => {
-            state.isLoading = true
+            state.isLoadingWeatherHourlyAndDaily = true
         })
         builder.addCase(weatherHourlyAndDailyThunk.fulfilled, (state, action) => {
             state.weatherHourlyAndDaily = action.payload
-            state.isLoading = false
+            state.isLoadingWeatherHourlyAndDaily = false
         })
         builder.addCase(weatherHourlyAndDailyThunk.rejected, (state, action) => {
-            state.isLoading = false
+            state.isLoadingWeatherHourlyAndDaily = false
             state.error = action.payload as string
         })
     }
