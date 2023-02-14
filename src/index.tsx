@@ -7,25 +7,29 @@ import {Provider} from "react-redux";
 import {store} from "./bll/store";
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import {useChangeMuiTheme} from "./utils/hooks/useChangeMuiTheme";
+import {useAppSelector} from "./utils/hooks/useAppSelector";
 
 export const ColorModeContext = React.createContext({
     toggleColorMode: () => {
     }
 });
 
+
 function Main() {
 
     const {theme, colorMode} = useChangeMuiTheme()
 
     return (
-        <ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline/>
-                <Provider store={store}>
-                    <App/>
-                </Provider>
-            </ThemeProvider>
-        </ColorModeContext.Provider>
+
+            <ColorModeContext.Provider value={colorMode}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline/>
+                    <Provider store={store}>
+                        <App/>
+                    </Provider>
+                </ThemeProvider>
+            </ColorModeContext.Provider>
+
     )
 }
 

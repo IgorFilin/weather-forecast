@@ -7,6 +7,8 @@ import sunriseSvg from '../../../../assets/svg/sunrise.svg'
 import sunsetSvg from '../../../../assets/svg/sunset.svg'
 import barometerSvg from '../../../../assets/svg/barometer.svg'
 import humiditySvg from '../../../../assets/svg/humidity.svg'
+// @ts-ignore
+import { Translate } from 'react-translated'
 
 interface IWeatherInCityBlock {
 }
@@ -86,7 +88,7 @@ export const WeatherInCityBlock: React.FC<IWeatherInCityBlock> = () => {
                     </Box>}
                     {isLoading ? <Skeleton width='150px' height='32px'/> :
                         <Typography fontWeight={400} variant="h5" component="h5">
-                            Feels like {feelLike}&#176;
+                            <Translate text='Feels like' /> {feelLike}&#176;
                         </Typography>}
                     <Box sx={{
                         display: 'flex',

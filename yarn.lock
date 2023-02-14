@@ -3101,6 +3101,11 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
+basic-parser@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/basic-parser/-/basic-parser-1.1.0.tgz#4225866303ba5a9ec5eb360d378a7d46f41910f5"
+  integrity sha512-KABkST6SL7NCZH9Yi5ZsJrki6388ZkXzpbN7j2lIWvptNagagkXID4F8GF7XGju8bTyXQfMzoTXgoiKMggiQjA==
+
 batch@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
@@ -7770,7 +7775,7 @@ prompts@^2.0.1, prompts@^2.4.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.6.2, prop-types@^15.8.1:
+prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -8014,6 +8019,14 @@ react-transition-group@^4.4.5:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-translated@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/react-translated/-/react-translated-2.5.0.tgz#2d7373d322ee9e305c8d607721ff162675a53669"
+  integrity sha512-s/wtzU185TgdF5iF4JsRvOSOJjKQL//mAHIJX9qdDgRiBWV9Z1fiiXSTmvUBx7NlUNLbX8FCwXn5plB6BufyWA==
+  dependencies:
+    basic-parser "^1.1.0"
+    prop-types "^15.6.0"
 
 react@^18.2.0:
   version "18.2.0"
