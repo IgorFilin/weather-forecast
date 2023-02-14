@@ -24,6 +24,8 @@ export const WeatherHourlyAndDaily = () => {
 
     }, [weather])
 
+
+
     return (
         <Box sx={{
             display: 'flex',
@@ -37,6 +39,8 @@ export const WeatherHourlyAndDaily = () => {
                 const icon = hour.weather && hour.weather[0].icon
                 const temp = Math.round(hour.main.temp)
                 const feelLike = Math.round(hour.main.feels_like)
+                const hourDate = moment.unix(hour.dt).format("HH:00")
+                const dayDate = moment.unix(hour.dt).format('dddd')
 
                 return <Box sx={{
                     display: 'flex',
@@ -45,6 +49,14 @@ export const WeatherHourlyAndDaily = () => {
                     justifyContent:'space-between',
                     padding:'10px',
                 }}>
+                    {isLoading
+                        ?
+                        <Skeleton width='130px' height='33px'/>
+                        :
+                        <Typography fontWeight={500} variant="h5" component="h6">
+                            {dayDate}
+                        </Typography>
+                    }
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
                         {isLoading
                             ?
@@ -72,7 +84,7 @@ export const WeatherHourlyAndDaily = () => {
                         <Skeleton width='130px' height='33px'/>
                         :
                         <Typography fontWeight={500} variant="h5" component="h6">
-                            {moment.unix(hour.dt).format("HH:00")}
+                            {hourDate}
                         </Typography>}
                 </Box>
             })}
